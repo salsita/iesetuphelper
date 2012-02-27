@@ -5,7 +5,7 @@
  * Used when a BHO is uninstalling to ensure proper cleanup.
  * Example: WipeInternetRegistrySubKey(L"Software\\<softwarekeyformybho>")
  */
-extern "C" void __stdcall WipeInternetRegistrySubKey(const wchar_t *subKey)
+EXPORTED(void, WipeInternetRegistrySubKey)(const wchar_t *subKey)
 {
   HKEY hKeyVirtUser = 0;
   LONG l;

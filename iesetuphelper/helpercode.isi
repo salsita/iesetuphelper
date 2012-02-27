@@ -1,3 +1,6 @@
+procedure WipeInternetRegistrySubKey(SubKey: String); external 'WipeInternetRegistrySubKey@files:iesetuphelper.dll stdcall delayload';
+procedure WipeInternetRegistrySubKeyUninst(SubKey: String); external 'WipeInternetRegistrySubKey@{app}/iesetuphelper.dll stdcall uninstallonly delayload';
+
 procedure SetMessagesCloseIEAutomatically(MsgInstCloseIE: String, MsgUninstCloseIE: String); external 'SetMessagesCloseIEAutomatically@files:iesetuphelper.dll stdcall delayload';
 procedure SetMessagesCloseIEAutomaticallyUninst(MsgInstCloseIE: String, MsgUninstCloseIE: String); external 'SetMessagesCloseIEAutomatically@{app}/iesetuphelper.dll stdcall uninstallonly delayload';
 

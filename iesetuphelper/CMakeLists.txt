@@ -12,3 +12,10 @@ set_property(TARGET iesetuphelper PROPERTY LIBRARY_OUTPUT_DIRECTORY_RELEASE ${ou
 set_property(TARGET iesetuphelper PROPERTY LIBRARY_OUTPUT_DIRECTORY_DEBUG ${outdir_bin_debug})
 set_property(TARGET iesetuphelper PROPERTY ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${outdir_lib_release})
 set_property(TARGET iesetuphelper PROPERTY ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${outdir_lib_debug})
+
+add_custom_command(
+	TARGET iesetuphelper
+	POST_BUILD
+	COMMAND cd /d \"${CMAKE_CURRENT_SOURCE_DIR}\"
+	COMMAND cscript generate-iss.js
+	)
