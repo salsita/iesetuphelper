@@ -1,0 +1,12 @@
+== SetupHelper ==
+
+'''SetupHelper''' is Windows shared library intended for use in InnoSetup or other setup packages.
+It contains helper functions including functions for automatic/manual closing of IE prior to the installation and wiping of IE virtualized registry key.
+The library is to be included in the setup package so that it is not installed with the main application but rather only extracted and used during the setup.
+In InnoSetup, for example, one can include the library in the [Files] section:
+ <nowiki>[Files]
+ Source: "setuphelper.dll"; Flags: dontcopy
+And then in the [Code] section include the file containing function definitions:
+ <nowiki>
+ [Code]
+ #include "setuphelper\helpercode.isi"
