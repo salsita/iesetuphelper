@@ -1,0 +1,8 @@
+LIBRARY      "setuphelper.dll"
+
+EXPORTS
+	WipeInternetRegistrySubKey
+	SetMessagesCloseIEAutomatically
+	SetMessagesCloseIEManually
+	GetIEFrameHandle
+	EnsureIENotRunning
