@@ -78,7 +78,7 @@ function processExport(retVal, name, paramSpec)
   {
     if (pascalParamSpec != '')
     {
-      pascalParamSpec += ', ';
+      pascalParamSpec += '; ';
     }
     var t = translateType(paramDefs[i].type);
     var n = paramDefs[i].name.charAt(0).toUpperCase() + paramDefs[i].name.slice(1);

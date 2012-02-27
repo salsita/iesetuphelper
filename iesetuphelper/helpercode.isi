@@ -1,15 +1,15 @@
 procedure WipeInternetRegistrySubKey(SubKey: String); external 'WipeInternetRegistrySubKey@files:iesetuphelper.dll stdcall delayload';
 procedure WipeInternetRegistrySubKeyUninst(SubKey: String); external 'WipeInternetRegistrySubKey@{app}/iesetuphelper.dll stdcall uninstallonly delayload';
 
-procedure SetMessagesCloseIEAutomatically(MsgInstCloseIE: String, MsgUninstCloseIE: String); external 'SetMessagesCloseIEAutomatically@files:iesetuphelper.dll stdcall delayload';
-procedure SetMessagesCloseIEAutomaticallyUninst(MsgInstCloseIE: String, MsgUninstCloseIE: String); external 'SetMessagesCloseIEAutomatically@{app}/iesetuphelper.dll stdcall uninstallonly delayload';
+procedure SetMessagesCloseIEAutomatically(MsgInstCloseIE: String; MsgUninstCloseIE: String); external 'SetMessagesCloseIEAutomatically@files:iesetuphelper.dll stdcall delayload';
+procedure SetMessagesCloseIEAutomaticallyUninst(MsgInstCloseIE: String; MsgUninstCloseIE: String); external 'SetMessagesCloseIEAutomatically@{app}/iesetuphelper.dll stdcall uninstallonly delayload';
 
-procedure SetMessagesCloseIEManually(MsgInstCloseIEManually: String, MsgUninstCloseIEManually: String); external 'SetMessagesCloseIEManually@files:iesetuphelper.dll stdcall delayload';
-procedure SetMessagesCloseIEManuallyUninst(MsgInstCloseIEManually: String, MsgUninstCloseIEManually: String); external 'SetMessagesCloseIEManually@{app}/iesetuphelper.dll stdcall uninstallonly delayload';
+procedure SetMessagesCloseIEManually(MsgInstCloseIEManually: String; MsgUninstCloseIEManually: String); external 'SetMessagesCloseIEManually@files:iesetuphelper.dll stdcall delayload';
+procedure SetMessagesCloseIEManuallyUninst(MsgInstCloseIEManually: String; MsgUninstCloseIEManually: String); external 'SetMessagesCloseIEManually@{app}/iesetuphelper.dll stdcall uninstallonly delayload';
 
 function GetIEFrameHandle(): longint; external 'GetIEFrameHandle@files:iesetuphelper.dll stdcall delayload';
 function GetIEFrameHandleUninst(): longint; external 'GetIEFrameHandle@{app}/iesetuphelper.dll stdcall uninstallonly delayload';
 
-function EnsureIENotRunning(IsInstalling: Boolean, Silent: Boolean): Boolean; external 'EnsureIENotRunning@files:iesetuphelper.dll stdcall delayload';
-function EnsureIENotRunningUninst(IsInstalling: Boolean, Silent: Boolean): Boolean; external 'EnsureIENotRunning@{app}/iesetuphelper.dll stdcall uninstallonly delayload';
+function EnsureIENotRunning(IsInstalling: Boolean; Silent: Boolean): Boolean; external 'EnsureIENotRunning@files:iesetuphelper.dll stdcall delayload';
+function EnsureIENotRunningUninst(IsInstalling: Boolean; Silent: Boolean): Boolean; external 'EnsureIENotRunning@{app}/iesetuphelper.dll stdcall uninstallonly delayload';
 
