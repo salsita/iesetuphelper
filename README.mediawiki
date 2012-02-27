@@ -1,11 +1,23 @@
-== IESetupHelper ==
+= IESetupHelper =
+
+== Description ==
 
 '''IESetupHelper''' is Windows shared library intended for use in InnoSetup or other setup packages.
-It contains helper functions including functions for automatic/manual closing of IE prior to the installation and wiping of IE virtualized registry key.
-The library is to be included in the setup package so that it is not installed with the main application but rather only extracted and used during the setup.
-In InnoSetup, for example, one can include the library in the [Files] section:
- <nowiki>[Files]
- Source: "iesetuphelper.dll"; Flags: dontcopy
-And then in the [Code] section include the file containing function definitions:
+It contains helper functions including functions for automatic/manual closing of IE prior to the installation
+and wiping of IE virtualized registry key.
+
+== InnoSetup usage ==
+
+Functions of the library can be called from iss script after including iesetuphelper\helpercode.isi
+in the [Code] section of the script:
  <nowiki>[Code]
  #include "iesetuphelper\helpercode.isi"
+The file contains two definitions for each exported funciton, one for use during installation phase
+when the dll is extracted into a temporary directory and second suffixed '''Uninst''' to be used during uninstallation.
+To use the dll in both installation and uninstallation you must install it into the {app} directory:
+ <nowiki>[Files]
+ Source: "iesetuphelper.dll"; DestDir: "{app}"; Flags: ignoreversion
+During deinstallation the library is loaded dynamically. To delete it successfully from the system
+when it is not needed anymore call
+ <nowiki>UnloadDLL(ExpandConstant('{app}\iesetuphelper.dll'));
+
