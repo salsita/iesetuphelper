@@ -7,6 +7,5 @@ In InnoSetup, for example, one can include the library in the [Files] section:
  <nowiki>[Files]
  Source: "setuphelper.dll"; Flags: dontcopy
 And then in the [Code] section include the file containing function definitions:
- <nowiki>
- [Code]
+ <nowiki>[Code]
  #include "setuphelper\helpercode.isi"
