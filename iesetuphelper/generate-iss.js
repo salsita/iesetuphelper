@@ -89,7 +89,7 @@ function processExport(retVal, name, paramSpec)
   var funcRetType = retType ? (': ' + retType) : '';
 
   dumpExport(funcOrProc, name, pascalParamSpec, funcRetType, 'external \'' + name + '@files:' + dllName + ' stdcall delayload\';');
-  dumpExport(funcOrProc, name + 'Uninst', pascalParamSpec, funcRetType, 'external \'' + name + '@{app}/' + dllName + ' stdcall uninstallonly delayload\';');
+  dumpExport(funcOrProc, name + 'Uninst', pascalParamSpec, funcRetType, 'external \'' + name + '@{app}\\' + dllName + ' stdcall uninstallonly delayload\';');
   outFile.WriteLine('');
 }
 
