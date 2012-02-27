@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8.7)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" FORCE)
 
-project("setuphelper")
+project("iesetuphelper")
 
 if(CMAKE_CL_64)
 	set(outdir_cfg_release Release64)
@@ -26,4 +26,4 @@ if($ENV{VERSION_BUILD})
 	add_definitions("-DVER_NUMBER_BUILD=$ENV{VERSION_BUILD}")
 endif($ENV{VERSION_BUILD})
 
-add_subdirectory(setuphelper)
+add_subdirectory(iesetuphelper)
