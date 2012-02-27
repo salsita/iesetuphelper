@@ -19,7 +19,7 @@ const wchar_t *gMsgUninstCloseIEManually = gDefaultMsgUninstCloseIEManually;
  * @param msgInstCloseIE prompt to automatically close IE when installing
  * @param msgUninstCloseIE prompt to automatically close IE when uninstalling
  */
-extern "C" void __stdcall SetMessagesCloseIEAutomatically(const wchar_t *msgInstCloseIE, const wchar_t * msgUninstCloseIE)
+EXPORTED(void, SetMessagesCloseIEAutomatically)(const wchar_t *msgInstCloseIE, const wchar_t * msgUninstCloseIE)
 {
   gMsgInstCloseIE = msgInstCloseIE ? msgInstCloseIE : gDefaultMsgInstCloseIE;
   gMsgUninstCloseIE = msgUninstCloseIE ? msgUninstCloseIE : gDefaultMsgUninstCloseIE;
@@ -31,8 +31,7 @@ extern "C" void __stdcall SetMessagesCloseIEAutomatically(const wchar_t *msgInst
  * @param msgInstCloseIEManually prompt to manually close IE when installing
  * @param msgUninstCloseIEManually prompt to manually close IE when uninstalling
  */
-
-extern "C" void __stdcall SetMessagesCloseIEManually(const wchar_t *msgInstCloseIEManually, const wchar_t * msgUninstCloseIEManually)
+EXPORTED(void, SetMessagesCloseIEManually)(const wchar_t *msgInstCloseIEManually, const wchar_t * msgUninstCloseIEManually)
 {
   gMsgInstCloseIEManually = msgInstCloseIEManually ? msgInstCloseIEManually : gDefaultMsgInstCloseIEManually;
   gMsgUninstCloseIEManually = msgUninstCloseIEManually ? msgUninstCloseIEManually : gDefaultMsgUninstCloseIEManually;
@@ -54,7 +53,7 @@ static BOOL AskUser(BOOL manually, BOOL isInstalling)
 /**
  * Finds a handle of any IE window.
  */
-extern "C" HWND __stdcall GetIEFrameHandle()
+EXPORTED(HWND, GetIEFrameHandle)()
 {
   return FindWindowW(L"IEFrame", NULL);
 }
@@ -77,7 +76,7 @@ static BOOL WaitForManualIEClose(BOOL isInstalling, BOOL silent)
  * Checks if IE is not running asking user to close it automatically/manually if it is.
  * @returns TRUE iff IE is no longer running.
  */
-extern "C" BOOL __stdcall EnsureIENotRunning(BOOL isInstalling, BOOL silent)
+EXPORTED(BOOL, EnsureIENotRunning)(BOOL isInstalling, BOOL silent)
 {
   DWORD startTime;
 

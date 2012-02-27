@@ -1,4 +1,4 @@
-file(GLOB_RECURSE source_files *.cpp *.h *.def *.rc)
+file(GLOB_RECURSE source_files *.cpp *.h *.def *.rc generate-iss.js)
 
 add_library(iesetuphelper SHARED ${source_files})
 
