@@ -1,4 +1,4 @@
-LIBRARY      "setuphelper.dll"
+LIBRARY      "iesetuphelper.dll"
 
 EXPORTS
 	WipeInternetRegistrySubKey

@@ -1,5 +1,5 @@
-procedure WipeInternetRegistrySubKey(SubKey: String); external 'WipeInternetRegistrySubKey@files:setuphelper.dll stdcall';
-procedure SetMessagesCloseIEAutomatically(MsgInstCloseIE: String; MsgUninstCloseIE: String); external 'SetMessagesCloseIEAutomatically@files:setuphelper.dll stdcall';
-procedure SetMessagesCloseIEManually(MsgInstCloseIEManually: String; MsgUninstCloseIEManually: String); external 'SetMessagesCloseIEManually@files:setuphelper.dll stdcall';
-function GetIEFrameHandle(): longint; external 'GetIEFrameHandle@files:setuphelper.dll stdcall';
-function EnsureIENotRunning(IsInstalling: Boolean; Silent: Boolean): Boolean; external 'EnsureIENotRunning@files:setuphelper.dll stdcall';
+procedure WipeInternetRegistrySubKey(SubKey: String); external 'WipeInternetRegistrySubKey@files:iesetuphelper.dll stdcall';
+procedure SetMessagesCloseIEAutomatically(MsgInstCloseIE: String; MsgUninstCloseIE: String); external 'SetMessagesCloseIEAutomatically@files:iesetuphelper.dll stdcall';
+procedure SetMessagesCloseIEManually(MsgInstCloseIEManually: String; MsgUninstCloseIEManually: String); external 'SetMessagesCloseIEManually@files:iesetuphelper.dll stdcall';
+function GetIEFrameHandle(): longint; external 'GetIEFrameHandle@files:iesetuphelper.dll stdcall';
+function EnsureIENotRunning(IsInstalling: Boolean; Silent: Boolean): Boolean; external 'EnsureIENotRunning@files:iesetuphelper.dll stdcall';

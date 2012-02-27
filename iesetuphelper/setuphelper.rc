@@ -68,9 +68,9 @@ BEGIN
             VALUE "CompanyName", VER_COMPANY
             VALUE "FileDescription", VER_PRODUCT
             VALUE "FileVersion", VER_NUMBER_STRING
-            VALUE "InternalName", "setuphelper.dll"
+            VALUE "InternalName", "iesetuphelper.dll"
             VALUE "LegalCopyright", VER_COPYRIGHT
-            VALUE "OriginalFilename", "setuphelper.dll"
+            VALUE "OriginalFilename", "iesetuphelper.dll"
             VALUE "ProductName", VER_PRODUCT
             VALUE "ProductVersion", VER_NUMBER_STRING
         END

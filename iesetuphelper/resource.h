@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by setuphelper.rc
+// Used by iesetuphelper.rc
 //
 #define IDS_PROJNAME                    100
 
