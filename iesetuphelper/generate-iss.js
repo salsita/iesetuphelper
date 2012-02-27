@@ -3,6 +3,7 @@
  */
 
 var fso = WScript.CreateObject("Scripting.FileSystemObject");
+var dllName = 'iesetuphelper.dll';
 var rxString = /const wchar_t \*/;
 
 function parseParam(p)
@@ -73,13 +74,13 @@ function processExport(retVal, name, paramSpec)
   var funcOrProc = retType ? 'function' : 'procedure';
   var funcRetType = retType ? (': ' + retType) : '';
 
-  dumpExport(funcOrProc, name, pascalParamSpec, funcRetType, '');
-  dumpExport(funcOrProc, name + 'Uninst', pascalParamSpec, funcRetType, '');
+  dumpExport(funcOrProc, name, pascalParamSpec, funcRetType, 'external \'' + name + '@files:' + dllName + ' stdcall delayload\';');
+  dumpExport(funcOrProc, name + 'Uninst', pascalParamSpec, funcRetType, 'external \'' + name + '@{app}/' + dllName + ' stdcall unisntallonly delayload\';');
 }
 
 function parseCppFile(fileName)
 {
-  var rxExport = /[\s]*EXPORTED\(([^,]+),([^,]+),(.+)\)/;
+  var rxExport = /[\s]*EXPORTED\(\s*([^,]+)\s*,\s*([^,]+)\s*,(.+)\)/;
   var f = fso.OpenTextFile(fileName, 1);
   while (!f.AtEndOfStream)
   {
