@@ -89,7 +89,7 @@ function processExport(retVal, name, paramSpec)
   var funcRetType = retType ? (': ' + retType) : '';
 
   dumpExport(funcOrProc, name, pascalParamSpec, funcRetType, 'external \'' + name + '@files:' + dllName + ' stdcall delayload\';');
-  dumpExport(funcOrProc, name + 'Uninst', pascalParamSpec, funcRetType, 'external \'' + name + '@{app}\\' + dllName + ' stdcall uninstallonly delayload\';');
+  dumpExport(funcOrProc, name + 'Uninst', pascalParamSpec, funcRetType, 'external \'' + name + '@{#iesetuphelerInstallDir}\\' + dllName + ' stdcall uninstallonly delayload\';');
   outFile.WriteLine('');
 }
 
@@ -111,9 +111,15 @@ function parseCppFile(fileName)
 
 var dir = fso.GetFolder('.');
 outFile = fso.CreateTextFile('helpercode.isi', true);
+
+outFile.WriteLine('#ifndef iesetuphelerInstallDir');
+outFile.WriteLine('#define iesetuphelerInstallDir "{app}"');
+outFile.WriteLine('#endif');
+outFile.WriteLine('');
+
 for (var fileEnum = new Enumerator(dir.files); !fileEnum.atEnd(); fileEnum.moveNext())
 {
-  if (fileEnum.item().name.match(/.cpp$/i))
+  if (fileEnum.item().name.match(/\.cpp$/i))
   {
     parseCppFile(fileEnum.item());
   }
