@@ -16,6 +16,6 @@ set_property(TARGET iesetuphelper PROPERTY ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${outd
 add_custom_command(
 	TARGET iesetuphelper
 	POST_BUILD
-	COMMAND cd /d \"${CMAKE_CURRENT_SOURCE_DIR}\"
 	COMMAND cscript generate-iss.js
+	WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
 	)
