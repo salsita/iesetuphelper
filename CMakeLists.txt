@@ -22,8 +22,8 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
 
-if($ENV{VERSION_BUILD})
-	add_definitions("-DVER_NUMBER_BUILD=$ENV{VERSION_BUILD}")
-endif($ENV{VERSION_BUILD})
+if(version_build)
+	add_definitions("-DVER_NUMBER_BUILD=${version_build}")
+endif(version_build)
 
 add_subdirectory(iesetuphelper)
