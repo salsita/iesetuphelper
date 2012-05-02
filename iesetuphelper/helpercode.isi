@@ -2,14 +2,14 @@
 #define iesetuphelerInstallDir "{app}"
 #endif
 
-procedure WipeInternetRegistrySubKey(SubKey: String); external 'WipeInternetRegistrySubKey@files:iesetuphelper.dll stdcall delayload';
-procedure WipeInternetRegistrySubKeyUninst(SubKey: String); external 'WipeInternetRegistrySubKey@{#iesetuphelerInstallDir}\iesetuphelper.dll stdcall uninstallonly delayload';
+procedure WipeInternetRegistrySubKey(SubKey: AnsiString); external 'WipeInternetRegistrySubKey@files:iesetuphelper.dll stdcall delayload';
+procedure WipeInternetRegistrySubKeyUninst(SubKey: AnsiString); external 'WipeInternetRegistrySubKey@{#iesetuphelerInstallDir}\iesetuphelper.dll stdcall uninstallonly delayload';
 
-procedure SetMessagesCloseIEAutomatically(MsgInstCloseIE: String; MsgUninstCloseIE: String); external 'SetMessagesCloseIEAutomatically@files:iesetuphelper.dll stdcall delayload';
-procedure SetMessagesCloseIEAutomaticallyUninst(MsgInstCloseIE: String; MsgUninstCloseIE: String); external 'SetMessagesCloseIEAutomatically@{#iesetuphelerInstallDir}\iesetuphelper.dll stdcall uninstallonly delayload';
+procedure SetMessagesCloseIEAutomatically(MsgInstCloseIE: AnsiString; MsgUninstCloseIE: AnsiString); external 'SetMessagesCloseIEAutomatically@files:iesetuphelper.dll stdcall delayload';
+procedure SetMessagesCloseIEAutomaticallyUninst(MsgInstCloseIE: AnsiString; MsgUninstCloseIE: AnsiString); external 'SetMessagesCloseIEAutomatically@{#iesetuphelerInstallDir}\iesetuphelper.dll stdcall uninstallonly delayload';
 
-procedure SetMessagesCloseIEManually(MsgInstCloseIEManually: String; MsgUninstCloseIEManually: String); external 'SetMessagesCloseIEManually@files:iesetuphelper.dll stdcall delayload';
-procedure SetMessagesCloseIEManuallyUninst(MsgInstCloseIEManually: String; MsgUninstCloseIEManually: String); external 'SetMessagesCloseIEManually@{#iesetuphelerInstallDir}\iesetuphelper.dll stdcall uninstallonly delayload';
+procedure SetMessagesCloseIEManually(MsgInstCloseIEManually: AnsiString; MsgUninstCloseIEManually: AnsiString); external 'SetMessagesCloseIEManually@files:iesetuphelper.dll stdcall delayload';
+procedure SetMessagesCloseIEManuallyUninst(MsgInstCloseIEManually: AnsiString; MsgUninstCloseIEManually: AnsiString); external 'SetMessagesCloseIEManually@{#iesetuphelerInstallDir}\iesetuphelper.dll stdcall uninstallonly delayload';
 
 function GetIEFrameHandle(): longint; external 'GetIEFrameHandle@files:iesetuphelper.dll stdcall delayload';
 function GetIEFrameHandleUninst(): longint; external 'GetIEFrameHandle@{#iesetuphelerInstallDir}\iesetuphelper.dll stdcall uninstallonly delayload';
@@ -17,6 +17,6 @@ function GetIEFrameHandleUninst(): longint; external 'GetIEFrameHandle@{#iesetup
 function EnsureIENotRunning(IsInstalling: Boolean; Silent: Boolean): Boolean; external 'EnsureIENotRunning@files:iesetuphelper.dll stdcall delayload';
 function EnsureIENotRunningUninst(IsInstalling: Boolean; Silent: Boolean): Boolean; external 'EnsureIENotRunning@{#iesetuphelerInstallDir}\iesetuphelper.dll stdcall uninstallonly delayload';
 
-procedure KillAllProcessesByAboslutePath(ExeAbsolutePath: String); external 'KillAllProcessesByAboslutePath@files:iesetuphelper.dll stdcall delayload';
-procedure KillAllProcessesByAboslutePathUninst(ExeAbsolutePath: String); external 'KillAllProcessesByAboslutePath@{#iesetuphelerInstallDir}\iesetuphelper.dll stdcall uninstallonly delayload';
+procedure KillAllProcessesByAboslutePath(ExeAbsolutePath: AnsiString); external 'KillAllProcessesByAboslutePath@files:iesetuphelper.dll stdcall delayload';
+procedure KillAllProcessesByAboslutePathUninst(ExeAbsolutePath: AnsiString); external 'KillAllProcessesByAboslutePath@{#iesetuphelerInstallDir}\iesetuphelper.dll stdcall uninstallonly delayload';
 

@@ -2,7 +2,7 @@ file(GLOB_RECURSE source_files *.cpp *.h *.def *.rc generate-iss.js)
 
 add_library(iesetuphelper SHARED ${source_files})
 
-add_definitions("-D_CRT_SECURE_NO_WARNINGS -D_UNICODE -DPSAPI_VERSION=1")
+add_definitions("-D_CRT_SECURE_NO_WARNINGS -DPSAPI_VERSION=1")
 
 set_target_properties(iesetuphelper PROPERTIES LINK_FLAGS "Shlwapi.lib Psapi.lib")
 

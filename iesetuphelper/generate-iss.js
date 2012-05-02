@@ -6,7 +6,7 @@ var fso = WScript.CreateObject("Scripting.FileSystemObject");
 var dllName = 'iesetuphelper.dll';
 var outFile;
 var rxVoid = /void/;
-var rxString = /const wchar_t \*/;
+var rxString = /const char \*/;
 var rxHwnd = /HWND/;
 var rxBool = /BOOL|bool/;
 
@@ -58,7 +58,7 @@ function translateType(cType)
     return null;
 
   if (cType.match(rxString))
-    return 'String';
+    return 'AnsiString';
 
   if (cType.match(rxHwnd))
     return 'longint';

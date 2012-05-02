@@ -1,17 +1,17 @@
 #include "stdafx.h"
 
-#define CLOSEMSG(op) L"Internet Explorer must be closed for "##op##L" to continue.\nClick OK to automatically close all open Internet Explorer windows.\nClick Cancel to abort "##op##L"."
-#define MANUALCLOSEMSG(op) L"Internet Explorer must be closed for "##op##L" to continue.\nPlease close all open Internet Explorer windows and click OK to continue.\nClick Cancel to abort "##op##L"."
+#define CLOSEMSG(op) "Internet Explorer must be closed for "##op##" to continue.\nClick OK to automatically close all open Internet Explorer windows.\nClick Cancel to abort "##op##"."
+#define MANUALCLOSEMSG(op) "Internet Explorer must be closed for "##op##" to continue.\nPlease close all open Internet Explorer windows and click OK to continue.\nClick Cancel to abort "##op##"."
 
-const wchar_t *gDefaultMsgInstCloseIE = CLOSEMSG(L"installation");
-const wchar_t *gDefaultMsgUninstCloseIE = CLOSEMSG(L"uninstallation");
-const wchar_t *gDefaultMsgInstCloseIEManually = MANUALCLOSEMSG(L"installation");
-const wchar_t *gDefaultMsgUninstCloseIEManually = MANUALCLOSEMSG(L"uninstallation");
+const char *gDefaultMsgInstCloseIE = CLOSEMSG("installation");
+const char *gDefaultMsgUninstCloseIE = CLOSEMSG("uninstallation");
+const char *gDefaultMsgInstCloseIEManually = MANUALCLOSEMSG("installation");
+const char *gDefaultMsgUninstCloseIEManually = MANUALCLOSEMSG("uninstallation");
 
-const wchar_t *gMsgInstCloseIE = gDefaultMsgInstCloseIE;
-const wchar_t *gMsgUninstCloseIE = gDefaultMsgUninstCloseIE;
-const wchar_t *gMsgInstCloseIEManually = gDefaultMsgInstCloseIEManually;
-const wchar_t *gMsgUninstCloseIEManually = gDefaultMsgUninstCloseIEManually;
+const char *gMsgInstCloseIE = gDefaultMsgInstCloseIE;
+const char *gMsgUninstCloseIE = gDefaultMsgUninstCloseIE;
+const char *gMsgInstCloseIEManually = gDefaultMsgInstCloseIEManually;
+const char *gMsgUninstCloseIEManually = gDefaultMsgUninstCloseIEManually;
 
 /**
  * Overrides default messages asking user to close IE automatically.
@@ -19,7 +19,7 @@ const wchar_t *gMsgUninstCloseIEManually = gDefaultMsgUninstCloseIEManually;
  * @param msgInstCloseIE prompt to automatically close IE when installing
  * @param msgUninstCloseIE prompt to automatically close IE when uninstalling
  */
-EXPORTED(void, SetMessagesCloseIEAutomatically)(const wchar_t *msgInstCloseIE, const wchar_t * msgUninstCloseIE)
+EXPORTED(void, SetMessagesCloseIEAutomatically)(const char *msgInstCloseIE, const char * msgUninstCloseIE)
 {
   gMsgInstCloseIE = msgInstCloseIE ? msgInstCloseIE : gDefaultMsgInstCloseIE;
   gMsgUninstCloseIE = msgUninstCloseIE ? msgUninstCloseIE : gDefaultMsgUninstCloseIE;
@@ -31,7 +31,7 @@ EXPORTED(void, SetMessagesCloseIEAutomatically)(const wchar_t *msgInstCloseIE, c
  * @param msgInstCloseIEManually prompt to manually close IE when installing
  * @param msgUninstCloseIEManually prompt to manually close IE when uninstalling
  */
-EXPORTED(void, SetMessagesCloseIEManually)(const wchar_t *msgInstCloseIEManually, const wchar_t * msgUninstCloseIEManually)
+EXPORTED(void, SetMessagesCloseIEManually)(const char *msgInstCloseIEManually, const char * msgUninstCloseIEManually)
 {
   gMsgInstCloseIEManually = msgInstCloseIEManually ? msgInstCloseIEManually : gDefaultMsgInstCloseIEManually;
   gMsgUninstCloseIEManually = msgUninstCloseIEManually ? msgUninstCloseIEManually : gDefaultMsgUninstCloseIEManually;
@@ -39,7 +39,7 @@ EXPORTED(void, SetMessagesCloseIEManually)(const wchar_t *msgInstCloseIEManually
 
 static BOOL AskUser(BOOL manually, BOOL isInstalling)
 {
-  const wchar_t * msg;
+  const char * msg;
   if (manually)
   {
     msg = isInstalling ? gMsgInstCloseIEManually : gMsgUninstCloseIEManually;
@@ -47,7 +47,7 @@ static BOOL AskUser(BOOL manually, BOOL isInstalling)
     msg = isInstalling ? gMsgInstCloseIE : gMsgUninstCloseIE;
   }
 
-  return (MessageBoxW(NULL, msg, L"Internet Explorer must be closed", MB_ICONINFORMATION | MB_OKCANCEL) == IDOK);
+  return (MessageBox(NULL, msg, "Internet Explorer must be closed", MB_ICONINFORMATION | MB_OKCANCEL) == IDOK);
 }
 
 /**
@@ -55,7 +55,7 @@ static BOOL AskUser(BOOL manually, BOOL isInstalling)
  */
 EXPORTED(HWND, GetIEFrameHandle)()
 {
-  return FindWindowW(L"IEFrame", NULL);
+  return FindWindow("IEFrame", NULL);
 }
 
 static BOOL WaitForManualIEClose(BOOL isInstalling, BOOL silent)

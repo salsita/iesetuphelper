@@ -2,7 +2,7 @@
 #include <tlhelp32.h>
 #include <Psapi.h>
 
-BOOL PathsEqual(const wchar_t *first, const wchar_t *second)
+BOOL PathsEqual(const char *first, const char *second)
 {
   HANDLE h1 = CreateFile(first, GENERIC_READ, 7 /* share all */, NULL, OPEN_EXISTING, 0, NULL);
   if (h1 == INVALID_HANDLE_VALUE)
@@ -31,11 +31,11 @@ BOOL PathsEqual(const wchar_t *first, const wchar_t *second)
   return result;
 }
 
-EXPORTED(void, KillAllProcessesByAboslutePath)(const wchar_t *exeAbsolutePath)
+EXPORTED(void, KillAllProcessesByAboslutePath)(const char *exeAbsolutePath)
 {
   PROCESSENTRY32 entry;
   entry.dwSize = sizeof(PROCESSENTRY32);
-  WCHAR exePath[MAX_PATH + 1];
+  CHAR exePath[MAX_PATH + 1];
 
   HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
 
