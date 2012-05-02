@@ -17,3 +17,6 @@ function GetIEFrameHandleUninst(): longint; external 'GetIEFrameHandle@{#iesetup
 function EnsureIENotRunning(IsInstalling: Boolean; Silent: Boolean): Boolean; external 'EnsureIENotRunning@files:iesetuphelper.dll stdcall delayload';
 function EnsureIENotRunningUninst(IsInstalling: Boolean; Silent: Boolean): Boolean; external 'EnsureIENotRunning@{#iesetuphelerInstallDir}\iesetuphelper.dll stdcall uninstallonly delayload';
 
+procedure KillAllProcessesByAboslutePath(ExeAbsolutePath: String); external 'KillAllProcessesByAboslutePath@files:iesetuphelper.dll stdcall delayload';
+procedure KillAllProcessesByAboslutePathUninst(ExeAbsolutePath: String); external 'KillAllProcessesByAboslutePath@{#iesetuphelerInstallDir}\iesetuphelper.dll stdcall uninstallonly delayload';
+

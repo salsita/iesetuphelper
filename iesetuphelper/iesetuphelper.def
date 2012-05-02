@@ -6,3 +6,4 @@ EXPORTS
 	SetMessagesCloseIEManually
 	GetIEFrameHandle
 	EnsureIENotRunning
+	KillAllProcessesByAboslutePath
