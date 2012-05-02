@@ -42,7 +42,7 @@ EXPORTED(void, KillAllProcessesByAboslutePath)(const char *exeAbsolutePath)
   if (Process32First(snapshot, &entry))
   {
     do {
-      HANDLE hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, entry.th32ProcessID);
+      HANDLE hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ | PROCESS_TERMINATE, FALSE, entry.th32ProcessID);
       if (hProcess && (GetModuleFileNameEx(hProcess, NULL, exePath, MAX_PATH) > 0))
       {
         if (PathsEqual(exePath, exeAbsolutePath))
