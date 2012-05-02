@@ -1,7 +1,7 @@
 #pragma once
 
-#define VER_COMPANY		"Salsita"
-#define VER_COPYRIGHT	"Copyright © 2012 Salsita. All rights reserved"
+#define VER_COMPANY		"Salsita s.r.o."
+#define VER_COPYRIGHT	"Copyright © 2012 Salsita s.r.o. All rights reserved."
 #define VER_PRODUCT		"Setup Helper Library"
 
 #define VER_NUMBER_MAJOR	1
